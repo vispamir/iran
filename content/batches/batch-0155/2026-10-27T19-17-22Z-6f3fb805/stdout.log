@@ -1,0 +1,498 @@
+[
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-10",
+    "page_path": "/explore/business/software-delivery-and-operations/",
+    "name": "Software Delivery & Operations",
+    "level": 2,
+    "parent_path": "/explore/business/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Software delivery and operations connect changes in source code with the running services people use. This field brings together automated pipelines, workload management, monitoring, logs, and the protection of operational credentials.",
+    "tags": ["Software delivery", "DevOps", "CI/CD", "Infrastructure", "Reliability", "Iran"],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:17:36Z",
+    "updated_at": "2026-10-27T19:17:36Z",
+    "seo": {
+      "title": "Software Delivery & Operations in Iran | Iran, Unfolded",
+      "description": "Understand software pipelines, containers, monitoring, logs, and secrets, with clear distinctions between technical capabilities and verified Iranian adoption."
+    },
+    "content": [
+      {
+        "id": "from-code-to-service",
+        "type": "text",
+        "heading": "From source code to a working service",
+        "content": "A software product has an operational life beyond the moment its code is written. Changes must be assembled, checked, delivered, and observed after release. Continuous integration and continuous delivery, usually abbreviated CI/CD, organize part of that journey into repeatable automated work. GitLab's documentation describes pipelines whose jobs can build applications, run tests, and deploy code. These are capabilities of the tooling; they do not establish how widely Iranian organizations use it. [s1]\n\nThis distinction matters when exploring Iran's technology businesses. A product demonstration can establish that a pipeline runs, while a claim about national adoption requires evidence from organizations or a representative survey. The sources inspected for this page support an explanation of the infrastructure, rather than a ranking of Iranian operators or an estimate of their market size.",
+        "source_ids": ["s1"]
+      },
+      {
+        "id": "distinct-operational-layers",
+        "type": "text",
+        "heading": "Different tools answer different questions",
+        "content": "Pipeline tools organize work around a change: what should run, in what order, and under which conditions? GitLab Runner supplies the execution side, receiving jobs and reporting their results. A repository server and the machines executing its jobs therefore have different responsibilities, even when one organization operates both. [s1][s2]\n\nContainer management addresses the running application. Kubernetes coordinates containerized workloads through declared configurations and automation. It does not replace every surrounding system: its overview explicitly distinguishes orchestration from building source code, prescribing a complete monitoring stack, or providing every application-level service. A release pipeline and a workload platform are complementary layers. [s3]\n\nMonitoring asks whether a service is behaving acceptably. Google's site reliability engineering guidance distinguishes measurements taken inside a system from checks of its externally visible behavior. It emphasizes latency, traffic, errors, and saturation as useful signals. Logs supply event detail that can help explain a symptom, but collecting more records is not the same as establishing that users can complete a task. [s4]",
+        "source_ids": ["s1", "s2", "s3", "s4"]
+      },
+      {
+        "id": "delivery-map",
+        "type": "markdown-mermaid",
+        "title": "A simplified delivery and feedback loop",
+        "content": "```mermaid\nflowchart LR\n  A[\"Source change\"] -->|\"Triggers configured work\"| B[\"Pipeline jobs\"]\n  B -->|\"Execute on\"| C[\"Runner infrastructure\"]\n  C -->|\"Produces\"| D[\"Build output\"]\n  D -->|\"Deployment job delivers\"| E[\"Running service\"]\n  E -->|\"Exposes behavior\"| F[\"Monitoring and logs\"]\n  F -->|\"Informs investigation\"| A\n```",
+        "summary": "This editorial synthesis shows how automated execution and operational feedback can connect. It is a conceptual workflow, not a documented architecture of an Iranian organization or a claim that every deployment follows this sequence.",
+        "as_of_date": null,
+        "source_ids": ["s1", "s2", "s4"]
+      },
+      {
+        "id": "security-and-responsibility",
+        "type": "text",
+        "heading": "Automation creates responsibilities",
+        "content": "Delivery infrastructure handles powerful permissions. GitLab warns that runners execute repository-defined code and can expose their hosts, other projects, or credentials if isolation is inadequate. The security boundary therefore extends beyond the application being built to the build environment itself. [s5]\n\nSecrets management is another separate discipline. Kubernetes provides Secret objects for confidential values, but base64 encoding is not encryption. Its guidance calls for encryption at rest and restricted access. Merely placing a password in a platform's designated object does not demonstrate that the surrounding permissions and storage are secure. [s6]\n\nTogether, these distinctions explain the branches of this guide: pipelines automate change; containers organize execution; monitoring and logs support understanding; secrets management protects access; and DevOps services help organizations integrate those responsibilities. They also provide concrete subjects for assessing a service provider: demonstrable execution, understandable failure handling, controlled credentials, and evidence of operating the resulting system. These are evaluation questions derived from the documented responsibilities, rather than verified claims about any Iranian supplier. [s1][s3][s4][s5][s6]",
+        "source_ids": ["s1", "s3", "s4", "s5", "s6"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Get started with GitLab CI/CD",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/ci/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Step 1: Configure your pipeline"
+      },
+      {
+        "id": "s2",
+        "title": "GitLab Runner",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/runner/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; What GitLab Runner does"
+      },
+      {
+        "id": "s3",
+        "title": "Overview",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/overview/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Overview; What Kubernetes is not"
+      },
+      {
+        "id": "s4",
+        "title": "Monitoring Distributed Systems",
+        "publisher": "Google",
+        "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "engineering_reference",
+        "locator": "Chapter 6: Definitions; The Four Golden Signals"
+      },
+      {
+        "id": "s5",
+        "title": "Security for self-managed runners",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/runner/security/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Security risks for different executors"
+      },
+      {
+        "id": "s6",
+        "title": "Good practices for Kubernetes Secrets",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Configure encryption at rest; Configure least-privilege access to Secrets"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/gitlab-and-ci-cd-tools/",
+        "label": "Pipeline configuration and execution"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/kubernetes-and-container-management/",
+        "label": "Managing containerized applications"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/monitoring-infrastructure/",
+        "label": "Observing service behavior"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/secrets-and-cryptographic-key-management/",
+        "label": "Protecting operational credentials"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/log-collection-and-analysis/",
+        "label": "Investigating recorded events"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/devops-services/",
+        "label": "Integrating delivery and operations"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "This draft establishes technical distinctions but lacks sufficient Iran-specific organizational evidence for a complete national overview.",
+        "Live documentation was inspected on 2026-10-27, after the requested cutoff. Its exact wording and feature coverage on 2026-10-26 were not independently established.",
+        "The diagram is an explicitly labeled editorial synthesis, not an observed production architecture."
+      ],
+      "unverified_items": [
+        "Documented Iranian implementations across different industries and organization sizes.",
+        "Regional differences within Iran, provider capabilities, and independently verified operating outcomes.",
+        "Historical source versions establishing the requested cutoff."
+      ],
+      "data_gaps": [
+        "No comparable annual Iranian series for CI/CD adoption, deployment frequency, operational reliability, or DevOps service revenue was verified. No proxy adoption chart has been constructed."
+      ],
+      "coverage_period": "Conceptual technical documentation inspected on 2026-10-27; Iran-specific coverage through 2026-10-26 remains incomplete."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-10-1",
+    "page_path": "/explore/business/software-delivery-and-operations/gitlab-and-ci-cd-tools/",
+    "name": "GitLab & CI/CD Tools",
+    "level": 3,
+    "parent_path": "/explore/business/software-delivery-and-operations/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "GitLab CI/CD turns configured development tasks into automated jobs executed by runners. Understanding its role in Iran requires separating the software's technical capabilities from product-specific access policies and evidence of local use.",
+    "tags": ["GitLab", "CI/CD", "Build automation", "Software testing", "Runners", "Iran"],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:17:36Z",
+    "updated_at": "2026-10-27T19:17:36Z",
+    "seo": {
+      "title": "GitLab & CI/CD Tools in Iran | Iran, Unfolded",
+      "description": "How GitLab pipelines, runners, and build artifacts work, and why technical availability and Iran-specific service policies require separate evidence."
+    },
+    "content": [
+      {
+        "id": "pipeline-basics",
+        "type": "text",
+        "heading": "Making development work repeatable",
+        "content": "Continuous integration brings automated checks into the process of combining code changes. The related delivery workflow prepares or deploys the resulting application. In GitLab, a pipeline configuration normally lives in a repository file named `.gitlab-ci.yml`; it describes jobs, stages, and execution conditions. Keeping those instructions alongside the application makes the automation part of the project's recorded changes. [s1]\n\nA pipeline is a coordinated set of tasks, not an assurance that the application is correct. GitLab supports triggers including pushes, merge requests, schedules, and manual actions. Stages ordinarily proceed in sequence, while jobs within a stage can execute in parallel. A failed job usually prevents later stages from proceeding, although configured rules can alter that behavior. The checks selected by the project determine what a successful result establishes. [s2]",
+        "source_ids": ["s1", "s2"]
+      },
+      {
+        "id": "runners-and-outputs",
+        "type": "text",
+        "heading": "Who executes a job, and what survives it?",
+        "content": "GitLab Runner executes the work on computing infrastructure and returns the result to GitLab. This separates pipeline coordination from the capacity that performs compilation, tests, or deployment. Administrators supplying that capacity must manage the runner infrastructure as an operational system in its own right. [s3]\n\nOutputs also have distinct purposes. Job artifacts retain files associated with a pipeline, such as a compiled build or test report. Later jobs can retrieve those files. GitLab distinguishes these artifacts from caches, which accelerate work and should be safe to lose, and from package registries intended for versioned outputs used beyond a single pipeline. Container images belong in a container registry. These distinctions help explain why retaining source code alone is not equivalent to retaining a usable release. [s4]\n\nThe execution environment is a security boundary. GitLab's runner guidance warns that repository-defined jobs can compromise shared, persistent infrastructure and expose credentials. Privileged container execution can grant extensive host access. A runner's location therefore says little about its isolation unless the execution permissions are also understood. [s5]",
+        "source_ids": ["s3", "s4", "s5"]
+      },
+      {
+        "id": "iran-access-distinction",
+        "type": "text",
+        "heading": "Iran: distinguish products, editions, and policies",
+        "content": "Access restrictions should be attributed to the specific supplier and product. The GitLab trade-compliance page inspected for this draft distinguishes Community Edition from Enterprise Edition, related technology, and services. It describes Community Edition as publicly available and outside the US Export Administration Regulations, while listing Iran among destinations restricted for the software covered by its stated export conditions. This is GitLab's description of its policy, not a determination that a particular transaction is permitted. [s6]\n\nGitHub must be considered separately. Its trade-controls documentation says it obtained a US Office of Foreign Assets Control license to restore cloud services to developers in Iran. That statement cannot be transferred to GitLab or another vendor. Nor does either policy page demonstrate that a specific account, subscription, runner, or network path works in practice. [s7]\n\nFor this Iranian guide, the defensible conclusion is limited: pipeline architecture can be explained from primary documentation, while local implementation and access require additional evidence. No claim about GitLab's Iranian market share or the prevalence of self-hosting is supported by this source set.",
+        "source_ids": ["s6", "s7"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Get started with GitLab CI/CD",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/ci/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Step 1: Configure your pipeline"
+      },
+      {
+        "id": "s2",
+        "title": "CI/CD pipelines",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/ci/pipelines/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction: triggers, jobs, and stages"
+      },
+      {
+        "id": "s3",
+        "title": "GitLab Runner",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/runner/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; What GitLab Runner does"
+      },
+      {
+        "id": "s4",
+        "title": "Job artifacts",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/ci/jobs/job_artifacts/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Choose job artifacts or a package registry"
+      },
+      {
+        "id": "s5",
+        "title": "Security for self-managed runners",
+        "publisher": "GitLab",
+        "url": "https://docs.gitlab.com/runner/security/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Usage of Docker executor"
+      },
+      {
+        "id": "s6",
+        "title": "Trade Compliance",
+        "publisher": "GitLab",
+        "url": "https://handbook.gitlab.com/handbook/legal/trade-compliance/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "vendor_policy",
+        "locator": "Trade Compliance: Community Edition distinction and export restrictions"
+      },
+      {
+        "id": "s7",
+        "title": "GitHub and Trade Controls",
+        "publisher": "GitHub",
+        "url": "https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "vendor_policy",
+        "locator": "Introduction: OFAC license for developers in Iran"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/",
+        "label": "The wider delivery and operations workflow"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/kubernetes-and-container-management/",
+        "label": "Infrastructure that can run delivered applications"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/secrets-and-cryptographic-key-management/",
+        "label": "Credentials used by automated jobs"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "Vendor policy statements describe the vendors' positions and are not individualized legal guidance or proof of practical account access.",
+        "Policy pages and technical documentation were inspected on 2026-10-27. Their exact state at the requested 2026-10-26 cutoff has not been established."
+      ],
+      "unverified_items": [
+        "Iranian organization case studies documenting pipeline architecture, edition, hosting arrangement, and outcomes.",
+        "Cutoff-date versions of the cited trade-compliance policies.",
+        "Practical availability of individual hosted features, payments, subscriptions, and support in Iran."
+      ],
+      "data_gaps": [
+        "No verified annual Iranian series for GitLab installations, active runners, pipeline executions, or CI/CD adoption was located in the inspected sources."
+      ],
+      "coverage_period": "Live technical and vendor-policy pages inspected on 2026-10-27; cutoff-specific and Iranian deployment evidence remains incomplete."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-10-2",
+    "page_path": "/explore/business/software-delivery-and-operations/kubernetes-and-container-management/",
+    "name": "Kubernetes & Container Management",
+    "level": 3,
+    "parent_path": "/explore/business/software-delivery-and-operations/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Kubernetes manages containerized applications by coordinating workloads across a cluster of machines. Its architecture separates decisions about desired application state from the node-level work of running containers.",
+    "tags": ["Kubernetes", "Containers", "Orchestration", "Cloud infrastructure", "Platform operations", "Iran"],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:17:36Z",
+    "updated_at": "2026-10-27T19:17:36Z",
+    "seo": {
+      "title": "Kubernetes & Container Management in Iran | Iran, Unfolded",
+      "description": "Explore Kubernetes clusters, Pods, controlled rollouts, and security responsibilities, with explicit limits on evidence about Iranian adoption."
+    },
+    "content": [
+      {
+        "id": "container-and-cluster",
+        "type": "text",
+        "heading": "Packaging an application and coordinating its execution",
+        "content": "Containers package applications with their runtime dependencies. Kubernetes supplies a platform for coordinating containerized workloads rather than requiring an operator to manage each running instance individually. Its central idea is declarative configuration: an operator describes a desired arrangement, and the system works toward that state. This does not make Kubernetes a complete application platform or remove the need for surrounding operational systems. [s1]\n\nThe distinction between packaging and orchestration is useful when reading descriptions of Iranian cloud services. A service that can run a container has not thereby demonstrated a particular Kubernetes architecture, managed-service responsibility model, or reliability outcome. Those require evidence about the actual offering. This page explains the underlying technology without attributing unverified capabilities to local providers.",
+        "source_ids": ["s1"]
+      },
+      {
+        "id": "cluster-responsibilities",
+        "type": "text",
+        "heading": "Inside a cluster",
+        "content": "A cluster separates control-plane functions from worker-node functions. The API server exposes the Kubernetes interface; etcd stores API-server data; the scheduler assigns unscheduled Pods to suitable nodes; and controllers implement the system's reconciliation behavior. On a node, the kubelet helps ensure that the specified Pods and their containers run, using a container runtime. A Pod is Kubernetes' smallest deployable workload unit. [s2][s3]\n\nThese components have different operational roles. Scheduling a workload is distinct from executing its containers, and retaining cluster configuration is distinct from preserving application data. The architecture therefore explains why a working application endpoint alone cannot establish the health or recoverability of every underlying component. That is an operational inference from the documented division of responsibilities. [s2]",
+        "source_ids": ["s2", "s3"]
+      },
+      {
+        "id": "desired-state",
+        "type": "markdown-mermaid",
+        "title": "How a Deployment becomes running application instances",
+        "content": "```mermaid\nflowchart TD\n  A[\"Operator\"] -->|\"Submits desired configuration\"| B[\"Kubernetes API\"]\n  B -->|\"Exposes Deployment state\"| C[\"Deployment controller\"]\n  C -->|\"Manages\"| D[\"ReplicaSet\"]\n  D -->|\"Maintains desired Pod count\"| E[\"Pods\"]\n  F[\"Scheduler\"] -->|\"Assigns to suitable nodes\"| E\n  G[\"Node kubelet and runtime\"] -->|\"Run specified containers\"| E\n```",
+        "summary": "The arrows distinguish configuration, controller ownership, scheduling, and execution. This is a simplified explanation of documented Kubernetes behavior, not a diagram of an Iranian provider's infrastructure.",
+        "as_of_date": null,
+        "source_ids": ["s2", "s4"]
+      },
+      {
+        "id": "rollouts-and-secrets",
+        "type": "text",
+        "heading": "Controlled change still needs operational judgment",
+        "content": "A Deployment manages a set of Pods, commonly for an application that does not maintain state. Updating its Pod template creates a new ReplicaSet and allows a controlled transition between revisions. Kubernetes also provides rollout status and rollback mechanisms. A completed rollout establishes defined workload conditions; it does not independently verify every business function of the application. [s4]\n\nConfidential configuration needs separate attention. Kubernetes Secrets can hold passwords, tokens, and keys, but their values are encoded rather than automatically encrypted in storage. The project recommends encryption at rest and narrowly granted access. Its guidance also explains that permission to create a Pod using a Secret can expose the Secret indirectly. Security therefore depends on effective permissions as well as object names. [s5]",
+        "source_ids": ["s4", "s5"]
+      },
+      {
+        "id": "persian-resources",
+        "type": "text",
+        "heading": "Persian documentation and the limits of local evidence",
+        "content": "The Kubernetes project provides a Persian-language documentation portal, with translated material and links to English sections. This is a concrete language-access resource, but its existence does not measure Iranian deployment numbers or demonstrate that every technical section is translated. [s6]\n\nFor an Iran-focused account, the next evidentiary step is documented implementation: who operates the control plane, which responsibilities remain with customers, and what independent evidence establishes service behavior. Until those details are verified, national adoption rates, provider comparisons, and claims of regional leadership would go beyond this source set.",
+        "source_ids": ["s6"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Overview",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/overview/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Overview; Why you need Kubernetes and what it can do; What Kubernetes is not"
+      },
+      {
+        "id": "s2",
+        "title": "Kubernetes Components",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/overview/components/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Core Components: Control Plane Components; Node Components"
+      },
+      {
+        "id": "s3",
+        "title": "Concepts",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Containers; Workloads"
+      },
+      {
+        "id": "s4",
+        "title": "Deployments",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Use Case; Deployment status"
+      },
+      {
+        "id": "s5",
+        "title": "Good practices for Kubernetes Secrets",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; Configure encryption at rest; Configure least-privilege access to Secrets"
+      },
+      {
+        "id": "s6",
+        "title": "مستندات کوبرنتیز",
+        "publisher": "Kubernetes",
+        "url": "https://kubernetes.io/fa/docs/home/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Persian documentation portal and navigation"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/",
+        "label": "The wider operational context"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/gitlab-and-ci-cd-tools/",
+        "label": "Building and delivering application changes"
+      },
+      {
+        "page_path": "/explore/business/cloud-infrastructure/",
+        "label": "Infrastructure supporting application platforms"
+      },
+      {
+        "page_path": "/explore/business/software-delivery-and-operations/secrets-and-cryptographic-key-management/",
+        "label": "Controlling confidential configuration"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "Primary project documentation establishes technical behavior, not deployment prevalence or service quality in Iran.",
+        "The Persian portal establishes language availability, not the nationality or location of its readers or contributors.",
+        "Live documentation was inspected on 2026-10-27. No archived version was verified for the requested 2026-10-26 cutoff.",
+        "The diagram is a simplified technical synthesis rather than a complete cluster architecture."
+      ],
+      "unverified_items": [
+        "Iranian production deployments with attributable architecture and operating evidence.",
+        "Domestic managed-service offerings, supported versions, responsibility boundaries, and independently verified availability.",
+        "Regional variation in adoption within Iran and cutoff-date documentation versions."
+      ],
+      "data_gaps": [
+        "No comparable annual Iranian series for Kubernetes clusters, production workloads, managed-service customers, or container adoption was verified. Global project activity would not establish Iranian usage."
+      ],
+      "coverage_period": "General architecture and Persian documentation inspected on 2026-10-27; Iranian implementation evidence through 2026-10-26 remains incomplete."
+    }
+  }
+]

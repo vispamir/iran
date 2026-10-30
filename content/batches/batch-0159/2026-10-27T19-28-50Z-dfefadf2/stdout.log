@@ -1,0 +1,372 @@
+[
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-11-5",
+    "page_path": "/explore/business/artificial-intelligence/image-processing/",
+    "name": "Image Processing",
+    "level": 3,
+    "parent_path": "/explore/business/artificial-intelligence/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Image processing transforms visual data through operations such as filtering, geometric correction, segmentation, and feature extraction. Iran-related examples include satellite land-cover mapping and research on recognizing Persian fonts in document images.",
+    "tags": ["Image processing", "Remote sensing", "Persian documents", "Land cover", "Optical character recognition"],
+    "status": null,
+    "editorial_status": "ready_for_review",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:29:24Z",
+    "updated_at": "2026-10-27T19:29:24Z",
+    "seo": {
+      "title": "Image Processing in Iran: Satellite Maps and Persian Documents",
+      "description": "Explore image processing through Iranian land-cover mapping and Persian document research, with clear distinctions between published methods and deployment."
+    },
+    "content": [
+      {
+        "id": "processing-foundations",
+        "type": "text",
+        "heading": "Turning images into usable information",
+        "content": "Image processing begins with operations on visual measurements: rotating an image, changing its color representation, reducing noise, separating foreground from background, or identifying boundaries. OpenCV, an open-source computer-vision library, documents these as distinct technical tasks. Some produce a clearer image for a person; others prepare data for automated analysis. They do not all require artificial intelligence. [s1]\n\nThe distinction matters when reading claims about an imaging product. A thresholding operation separates pixels according to intensity; segmentation divides an image into regions; recognition assigns meaning to what appears. A workflow may combine these operations, but success at one stage does not establish success at the next. An image with sharper edges is not, by itself, a verified interpretation of a document or landscape. This is an explanatory distinction drawn from the separate operations in the OpenCV documentation. [s1]",
+        "source_ids": ["s1"]
+      },
+      {
+        "id": "iran-land-cover",
+        "type": "text",
+        "heading": "An Iranian example: mapping land cover",
+        "content": "A concrete national example is the Iran Land Cover Map produced by the LiDAR Lab at K. N. Toosi University of Technology. Google's Earth Engine catalog describes a map for 2017 built from Sentinel satellite imagery, processed through its cloud platform and classified using an object-based Random Forest method. Random Forest is a machine-learning approach that combines decision trees; here it assigns land-cover categories using reference samples. [s2]\n\nThe classification distinguishes categories including urban land, water, wetlands, forest, and salt-affected land. It also includes kalut, or yardang: a wind-eroded landform. These labels show why interpreting Iranian landscapes requires a classification appropriate to the territory rather than a generic division into vegetation and buildings. The catalog supplies the class definitions, spatial resolution, dataset identifier, and reuse license. [s2]\n\nIts reporting year is essential to interpretation. This is a mapped representation of land cover for a particular period, not a live inventory. The inspected catalog entry does not establish an annual sequence of comparable maps. Consequently, it cannot independently support a chart of yearly land-cover change. [s2]",
+        "source_ids": ["s2"]
+      },
+      {
+        "id": "persian-document-images",
+        "type": "text",
+        "heading": "Persian documents and the limits of recognition",
+        "content": "Document images present a different problem. The Persis research project studies visual recognition of Persian fonts using convolutional neural networks, models that learn visual patterns from examples. Its author abstract describes publicly available font datasets and identifies graphic design and optical character recognition as possible applications. Optical character recognition, usually shortened to OCR, converts images of writing into machine-readable text. [s3]\n\nFont identification and transcription remain different outputs. Persis reports a font-recognition pipeline; the inspected abstract does not demonstrate a complete system for reliably transcribing arbitrary Iranian archives. Nor does it establish commercial deployment. The useful lesson is narrower: Persian typography can be treated as a measurable research problem, with evaluation tied to named datasets. Together, document recognition and land-cover mapping illustrate the field's range while also showing why each result must be read against its own task, reference data, and reporting period. [s2][s3]",
+        "source_ids": ["s2", "s3"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Image Processing in OpenCV",
+        "publisher": "OpenCV",
+        "url": "https://docs.opencv.org/4.13.0/d2/d96/tutorial_py_table_of_contents_imgproc.html",
+        "language": "English",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Tutorial index: geometric transformations, thresholding, smoothing, morphology, edges, and segmentation"
+      },
+      {
+        "id": "s2",
+        "title": "Iran Land Cover Map v1 13-class (2017)",
+        "publisher": "Google Earth Engine Data Catalog; dataset producer: K. N. Toosi University of Technology LiDAR Lab",
+        "url": "https://developers.google.com/earth-engine/datasets/catalog/KNTU_LiDARLab_IranLandCover_V1",
+        "language": "English",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "dataset_documentation",
+        "locator": "Description, Bands, classification Class Table, and Terms of Use; dataset KNTU/LiDARLab/IranLandCover/V1"
+      },
+      {
+        "id": "s3",
+        "title": "Persis: A Persian Font Recognition Pipeline Using Convolutional Neural Networks",
+        "publisher": "arXiv",
+        "url": "https://arxiv.org/abs/2310.05255v2",
+        "language": "English",
+        "publication_date": "2023-10-10",
+        "access_date": "2026-10-27",
+        "source_type": "author_research_abstract",
+        "locator": "Abstract and submission history, version 2"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/artificial-intelligence/computer-vision/",
+        "label": "Broader interpretation of visual information"
+      },
+      {
+        "page_path": "/explore/business/artificial-intelligence/persian-language-processing/",
+        "label": "Language analysis after document transcription"
+      },
+      {
+        "page_path": "/explore/business/artificial-intelligence/",
+        "label": "Parent overview of artificial intelligence"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "Persis is discussed only at the level supported by the inspected author abstract; its full experimental methods were not assessed.",
+        "The land-cover catalog documents a research dataset, not commercial adoption or independently measured business outcomes.",
+        "Sources were accessed after the editorial cutoff. Historical source content is used; the exact state of undated documentation on the cutoff date was not independently archived."
+      ],
+      "unverified_items": [],
+      "data_gaps": [
+        "No comparable annual Iranian image-processing adoption, revenue, or deployment series was verified for 2012–2026.",
+        "The inspected land-cover entry describes a single reporting year and cannot support an annual trend."
+      ],
+      "coverage_period": "Selected Iranian and Persian-language examples from 2017–2023; editorial cutoff 2026-10-26."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-11-6",
+    "page_path": "/explore/business/artificial-intelligence/predictive-analytics/",
+    "name": "Predictive Analytics",
+    "level": 3,
+    "parent_path": "/explore/business/artificial-intelligence/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Predictive analytics uses recorded data to estimate outcomes beyond the observations used to build a model. Iranian electricity-demand studies provide documented examples, while illustrating why experimental accuracy must be distinguished from operational performance.",
+    "tags": ["Predictive analytics", "Electricity demand", "Forecasting", "Machine learning", "Model validation"],
+    "status": null,
+    "editorial_status": "ready_for_review",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:29:24Z",
+    "updated_at": "2026-10-27T19:29:24Z",
+    "seo": {
+      "title": "Predictive Analytics in Iran: Evidence from Electricity Forecasting",
+      "description": "Understand Iranian demand-forecasting research, the importance of forecast horizons, and the difference between model evaluation and operational results."
+    },
+    "content": [
+      {
+        "id": "forecasting-question",
+        "type": "text",
+        "heading": "A prediction needs a defined question",
+        "content": "Predictive analytics is most useful when its question is precise. Estimating electricity demand for the next hour differs from estimating the next year's demand: the information available, the decision being supported, and the evaluation all change. An Iranian regional study published in 2022 examined medium-term forecasting, including next-year peak demand and daily load patterns. Its abstract describes attention to weather, economic and social factors, as well as detection of problematic data. [s1]\n\nThis makes electricity a concrete entry point for understanding the subject in Iran. The model is intended to support planning, rather than simply describe consumption already recorded. However, a retrospective forecasting experiment remains evidence about a specified dataset and procedure. It does not by itself show that a utility adopted the model or that its use improved service. The inspected institutional research record establishes the experiment, not those subsequent outcomes. [s1]",
+        "source_ids": ["s1"]
+      },
+      {
+        "id": "research-examples",
+        "type": "text",
+        "heading": "What Iranian demand studies investigate",
+        "content": "A 2024 study recorded by the University of Helsinki used electricity-load data from the Iranian Grid Management Company alongside German electricity-market data. Its inputs included environmental conditions, calendar events, and earlier load observations. The researchers compared several model families, including Long Short-Term Memory networks, which are designed to learn patterns in sequences, and a version combined with a signal-decomposition technique. [s2]\n\nThe abstract reports evaluation across different forecast horizons and during special events. That separation is valuable: performance under ordinary conditions need not describe performance around holidays or other changes in activity. The study also uses several error measures rather than treating a single headline accuracy figure as a complete account. Its findings are reported model comparisons, not a national estimate of forecasting capability. [s2]\n\nAnother paper, available online in December 2024 and assigned to a 2025 journal issue, examined household, industrial, and agricultural electricity consumption in Iran. It combined neural networks with optimization algorithms and reported different comparative results by sector. The important distinction is between these sector-specific experiments and a universal claim that one algorithm is best for every Iranian forecasting task. [s3]",
+        "source_ids": ["s2", "s3"]
+      },
+      {
+        "id": "validation-and-meaning",
+        "type": "text",
+        "heading": "How to read a forecasting claim",
+        "content": "Evaluation must preserve the boundary between information available when a forecast is made and information learned afterward. The scikit-learn documentation warns that testing on training data can produce misleadingly strong results. It also explains why ordinary random splitting can be inappropriate for time series: nearby observations are correlated, and evaluation should test performance on later observations. Preprocessing must likewise be learned from training data rather than from the held-out test set. [s4]\n\nApplied to an Iranian demand forecast, this means asking when the model was trained, which period was withheld, what forecast horizon was tested, and whether the comparison used the same information. These are editorial implications of the documented validation principles. They help separate a convincing experiment from a claim that merely fits historical observations well. [s4]\n\nThe research establishes a substantive Iranian forecasting literature. Its practical significance should be assessed through documented deployment, sustained monitoring, and decision outcomes; those outcomes were not established by the inspected abstracts. Annual electricity consumption would describe the underlying energy system, while annual adoption of predictive analytics would measure something different. Neither is reconstructed here from isolated experimental results. [s1][s2][s3]",
+        "source_ids": ["s1", "s2", "s3", "s4"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "An Experimental Machine Learning Approach for Mid-Term Energy Demand Forecasting",
+        "publisher": "German Research Center for Artificial Intelligence (DFKI); publication in IEEE Access",
+        "url": "https://www.dfki.de/en/web/research/projects-and-publications/publication/12991",
+        "language": "English",
+        "publication_date": "2022-11",
+        "access_date": "2026-10-27",
+        "source_type": "institutional_research_record",
+        "locator": "Abstract and bibliographic record; IEEE Access volume 10, pages 118926–118940"
+      },
+      {
+        "id": "s2",
+        "title": "Deep learning modeling in electricity load forecasting: Improved accuracy by combining DWT and LSTM",
+        "publisher": "University of Helsinki Research Portal; publication in Energy Reports",
+        "url": "https://researchportal.helsinki.fi/en/publications/deep-learning-modeling-in-electricity-load-forecasting-improved-a/",
+        "language": "English",
+        "publication_date": "2024",
+        "access_date": "2026-10-27",
+        "source_type": "institutional_research_record",
+        "locator": "Abstract; Energy Reports volume 12, pages 2873–2900"
+      },
+      {
+        "id": "s3",
+        "title": "Improving electricity demand forecasting through hybrid neural networks and meta-heuristics: A case study in Iran",
+        "publisher": "AIMS Press, Journal of Dynamics and Games",
+        "url": "https://www.aimsciences.org/article/doi/10.3934/jdg.2024029",
+        "language": "English",
+        "publication_date": "2024-12-06",
+        "access_date": "2026-10-27",
+        "source_type": "research_article",
+        "locator": "Abstract and publication history; 2025 volume 12, issue 3, pages 243–266"
+      },
+      {
+        "id": "s4",
+        "title": "Cross-validation: evaluating estimator performance",
+        "publisher": "scikit-learn developers",
+        "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+        "language": "English",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Section 3.1 introduction, Data transformation with held-out data, and section 3.1.2.6 Cross validation of time series data"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/artificial-intelligence/enterprise-ai/",
+        "label": "Organizational deployment and accountability"
+      },
+      {
+        "page_path": "/explore/business/artificial-intelligence/",
+        "label": "Parent overview of artificial intelligence"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "Research descriptions are limited to inspected abstracts and institutional publication records; detailed experimental findings from unseen full texts are not asserted.",
+        "The examples concentrate on electricity forecasting and do not establish the distribution of predictive analytics across Iranian industries.",
+        "Sources were accessed after the editorial cutoff; the exact cutoff-date version of undated technical documentation was not independently archived."
+      ],
+      "unverified_items": [],
+      "data_gaps": [
+        "No comparable annual Iranian predictive-analytics adoption or business-outcome series was verified for 2012–2026.",
+        "Underlying load observations were not extracted and validated as a reproducible annual dataset.",
+        "Reported results from different experiments were not combined into an artificial performance trend."
+      ],
+      "coverage_period": "Selected research published in 2022–2025; editorial cutoff 2026-10-26."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-11-7",
+    "page_path": "/explore/business/artificial-intelligence/enterprise-ai/",
+    "name": "Enterprise AI",
+    "level": 3,
+    "parent_path": "/explore/business/artificial-intelligence/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Enterprise AI concerns the organizational use of artificial intelligence, including responsibility for evaluation, deployment, and ongoing risk management. Iranian forecasting research supplies examples of relevant technical work, but the inspected evidence does not establish nationwide enterprise adoption or measured commercial returns.",
+    "tags": ["Enterprise AI", "AI governance", "Organizational adoption", "Model evaluation", "Iranian businesses"],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T19:29:24Z",
+    "updated_at": "2026-10-27T19:29:24Z",
+    "seo": {
+      "title": "Enterprise AI in Iran: Deployment, Governance, and Evidence Gaps",
+      "description": "An evidence-limited introduction to enterprise AI in Iran, distinguishing technical research, organizational deployment, and verified business outcomes."
+    },
+    "content": [
+      {
+        "id": "organizational-scope",
+        "type": "text",
+        "heading": "From a model to an organizational responsibility",
+        "content": "Enterprise AI places artificial intelligence within an organization's activities and responsibilities. A useful reference is the AI Risk Management Framework published by the United States National Institute of Standards and Technology, or NIST. It addresses organizations designing, developing, deploying, or using AI and is intended to work across sectors and organization sizes. It is a voluntary framework, not a statement of Iranian law or evidence that Iranian businesses follow it. [s1]\n\nThis distinction helps international readers assess the Iranian business landscape without equating technical capability with organizational adoption. Research can establish that a method was tested; deployment requires separate evidence about who used it, in which workflow, and under what controls. This page uses the framework as an explanatory reference and keeps Iran-specific claims within the limits of the inspected research. [s1][s4]",
+        "source_ids": ["s1", "s4"]
+      },
+      {
+        "id": "iran-evidence",
+        "type": "text",
+        "heading": "What the Iranian evidence establishes",
+        "content": "Electricity forecasting illustrates a task relevant to organizational decision-making. A study recorded by the University of Helsinki used Iranian Grid Management Company load data and compared forecasting methods across different horizons and conditions. This supports a specific claim about research using Iranian operational data. The inspected abstract does not establish that the company deployed the resulting model, purchased a service, or achieved a measured financial return. [s4]\n\nThat boundary matters for a business-opportunities guide. A published experiment can identify a technically relevant problem without establishing a supplier's customer base or a market's size. Company case studies, procurement records, and independently assessed outcomes would be needed to develop a fuller account of enterprise use in Iran. Those remain research requirements rather than findings of this page. [s4]",
+        "source_ids": ["s4"]
+      },
+      {
+        "id": "governance-reference",
+        "type": "text",
+        "heading": "A framework for understanding deployment",
+        "content": "NIST organizes risk management around Govern, Map, Measure, and Manage. Governance crosses the other functions: responsibilities and policies shape how an organization understands an application, evaluates it, and responds to risks. The framework explicitly says these functions are not necessarily an ordered checklist. Monitoring and improvement continue after deployment. [s2]\n\nFor an enterprise reader, the implication is that a model's evaluation score is only part of the account. The organization also needs to understand the application context and decide how identified risks will be treated. This is an editorial explanation of the framework, not a claim about practices already established in Iranian firms. [s2]\n\nThe companion NIST Playbook offers suggested actions and references that organizations can tailor to their circumstances. Its flexibility is useful when explaining why enterprise AI cannot be reduced to buying a model or adopting a single organizational template. It provides a vocabulary for examining deployment; it does not certify a product or supply missing evidence about Iranian adoption. [s3]",
+        "source_ids": ["s2", "s3"]
+      },
+      {
+        "id": "governance-diagram",
+        "type": "markdown-mermaid",
+        "title": "NIST risk-management functions as an explanatory reference",
+        "content": "```mermaid\nflowchart TD\n  G[\"Govern: responsibilities and policies\"] -->|\"Informs\"| A[\"Map: application context and risks\"]\n  G -->|\"Informs\"| B[\"Measure: assess identified risks\"]\n  G -->|\"Informs\"| C[\"Manage: prioritize and treat risks\"]\n  C -->|\"Continues after deployment\"| D[\"Monitoring and improvement\"]\n```",
+        "summary": "This simplified diagram shows governance informing the other NIST functions and management continuing after deployment. The arrows describe an explanatory framework, not a mandatory sequence, Iranian legal authority, or verified Iranian company practice.",
+        "as_of_date": "2026-10-26",
+        "source_ids": ["s2"]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+        "publisher": "National Institute of Standards and Technology",
+        "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "language": "English",
+        "publication_date": "2023-01-26",
+        "access_date": "2026-10-27",
+        "source_type": "institutional_framework_record",
+        "locator": "Abstract; NIST AI 100-1"
+      },
+      {
+        "id": "s2",
+        "title": "AI RMF Core",
+        "publisher": "National Institute of Standards and Technology, AI Resource Center",
+        "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "language": "English",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "framework_documentation",
+        "locator": "Section 5 introduction, Figure 5 description, and section 5.4 Manage"
+      },
+      {
+        "id": "s3",
+        "title": "NIST AI RMF Playbook",
+        "publisher": "National Institute of Standards and Technology",
+        "url": "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "language": "English",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "institutional_guidance",
+        "locator": "Overview paragraphs explaining suggested actions, tailoring, and voluntary use"
+      },
+      {
+        "id": "s4",
+        "title": "Deep learning modeling in electricity load forecasting: Improved accuracy by combining DWT and LSTM",
+        "publisher": "University of Helsinki Research Portal; publication in Energy Reports",
+        "url": "https://researchportal.helsinki.fi/en/publications/deep-learning-modeling-in-electricity-load-forecasting-improved-a/",
+        "language": "English",
+        "publication_date": "2024",
+        "access_date": "2026-10-27",
+        "source_type": "institutional_research_record",
+        "locator": "Abstract; Energy Reports volume 12, pages 2873–2900"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/artificial-intelligence/predictive-analytics/",
+        "label": "Research examples in demand forecasting"
+      },
+      {
+        "page_path": "/explore/business/artificial-intelligence/large-language-models/",
+        "label": "A model family relevant to organizational applications"
+      },
+      {
+        "page_path": "/explore/business/artificial-intelligence/",
+        "label": "Parent overview of artificial intelligence"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "This is a supported conceptual introduction, not a complete account of enterprise AI in Iran.",
+        "NIST guidance is used as an international explanatory reference and is not presented as Iranian law, certification, or documented local practice.",
+        "Attempts to inspect mirrored Digikala annual-report PDFs failed because of access or document-size restrictions; search excerpts were not used to assert company outcomes.",
+        "Sources were accessed after the editorial cutoff. Discussion uses the original AI RMF 1.0 structure and does not assert later revisions as cutoff-date developments."
+      ],
+      "unverified_items": [
+        "Named Iranian enterprise deployments with inspectable primary documentation identifying operational scope and deployment dates.",
+        "Independently corroborated productivity, cost, revenue, or service-quality outcomes from Iranian deployments.",
+        "Differences in adoption between industries, regions, and firm sizes in Iran.",
+        "Iran-specific organizational constraints supported by dated primary evidence."
+      ],
+      "data_gaps": [
+        "No representative annual Iranian enterprise-AI adoption series was verified for 2012–2026.",
+        "No defensible annual series of enterprise AI expenditure or realized business returns was verified."
+      ],
+      "coverage_period": "Conceptual framework published in 2023 and Iranian forecasting research published in 2024; editorial cutoff 2026-10-26."
+    }
+  }
+]

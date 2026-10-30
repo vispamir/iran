@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <div className="iran-site" style={{minHeight:'65vh',padding:'90px 7%'}}><span className="ir-eyebrow">A DIFFERENT TURN</span><h1 style={{fontSize:'clamp(36px,6vw,72px)',fontWeight:400,lineHeight:1.1}}>This path is still<br/>waiting to be found.</h1><p>The page you requested is not part of this guide.</p><Link href="/explore/" style={{textDecoration:'underline',textUnderlineOffset:6}}>Explore all perspectives ↗</Link></div>}

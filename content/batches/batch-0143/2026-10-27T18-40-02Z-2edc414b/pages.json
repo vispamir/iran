@@ -1,0 +1,427 @@
+[
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-5-1",
+    "page_path": "/explore/business/financial-technology/payment-facilitators-and-gateways/",
+    "name": "Payment Facilitators & Gateways",
+    "level": 3,
+    "parent_path": "/explore/business/financial-technology/",
+    "entity_type": "category",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Iranian payment facilitators provide merchant-facing services around online payment gateways. ZarinPal's documentation illustrates how payment requests, hosted checkout, transaction verification, and financial reference numbers fit together.",
+    "tags": [
+      "Iran",
+      "Financial Technology",
+      "Payment Gateways",
+      "Merchant Payments",
+      "Payment Facilitators"
+    ],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T18:40:54Z",
+    "updated_at": "2026-10-27T18:40:54Z",
+    "seo": {
+      "title": "Payment Facilitators and Online Gateways in Iran | Iran, Unfolded",
+      "description": "Understand merchant-facing payment services in Iran through documented gateway requests, hosted checkout, verification, and reporting."
+    },
+    "content": [
+      {
+        "id": "merchant-services",
+        "type": "text",
+        "heading": "The merchant-facing layer",
+        "content": "An online shop needs a way to connect a customer’s purchase to a confirmed payment. In Iran, ZarinPal describes itself as a payment facilitator, or *pardakht-yar*, offering internet payment gateways and associated services to businesses. Its website advertises connections to multiple payment service providers, abbreviated PSPs, alongside routing, settlement, plugins, and developer tools. These are the provider’s descriptions of its offering; they do not independently establish transaction success rates or service reliability. [s1]\n\nThe distinction between the merchant service and the payment page matters. ZarinPal’s technical introduction describes a merchant as the seller of an online product or service and the buyer as a holder of a bank card belonging to the Shetab network. Its gateway documentation therefore concerns a particular domestic card-payment workflow. It does not establish acceptance of international cards. [s2]",
+        "source_ids": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "payment-lifecycle",
+        "type": "text",
+        "heading": "From an order to a verified transaction",
+        "content": "ZarinPal’s connection guide separates checkout into stages. The merchant first sends a payment request containing its merchant identifier, an amount, a description, and a return address. A successful response supplies an Authority identifier that the merchant uses to redirect the buyer to payment. After the payment interaction, the buyer returns to the merchant’s callback address. [s3]\n\nThat return is an intermediate step. The guide requires the merchant to verify the transaction through a separate service before recording success. Verification supplies a payment reference that can support later financial tracing. The documentation also distinguishes a first successful verification from a subsequent verification of the same successful transaction. This distinction helps explain why returning to a confirmation page and creating a new paid order are separate operations. [s3]\n\nThe technical introduction places entry of confidential payment details on the payment gateway rather than the merchant’s website. It also distinguishes the request identifier from the reference supplied after successful completion. Keeping those roles clear makes the payment journey easier to understand: an identifier can refer to an attempted purchase before there is a confirmed financial result. [s2]",
+        "source_ids": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "gateway-sequence",
+        "type": "markdown-mermaid",
+        "title": "A documented ZarinPal checkout sequence",
+        "content": "```mermaid\nsequenceDiagram\n  participant B as Buyer\n  participant M as Merchant website\n  participant Z as ZarinPal service\n  participant G as Payment gateway\n  M->>Z: Submit payment request\n  Z-->>M: Return Authority identifier\n  M-->>B: Redirect to payment\n  B->>G: Complete payment interaction\n  G-->>B: Return toward merchant callback\n  B->>M: Open callback address\n  M->>Z: Verify transaction\n  Z-->>M: Return verification result\n```",
+        "summary": "The diagram summarizes the published integration sequence. Its arrows represent requests and browser navigation, not interbank settlement or regulatory authority.",
+        "as_of_date": null,
+        "source_ids": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "commercial-boundaries",
+        "type": "text",
+        "heading": "What the documentation establishes",
+        "content": "The inspected material shows how a facilitator packages checkout integration and related merchant services. ZarinPal also advertises daily settlement and plugins, which address different business needs from payment authorization itself. A checkout integration, a settlement promise, and a claim about improved sales should therefore be evaluated separately. [s1]\n\nThese sources provide a concrete technical example rather than a complete map of Iran’s payment industry. Current licensing, merchant eligibility, mandatory onboarding requirements, and settlement rules require dated regulatory evidence before this page can serve as a comprehensive account.",
+        "source_ids": [
+          "s1"
+        ]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Internet payment gateway services",
+        "publisher": "ZarinPal",
+        "url": "https://www.zarinpal.com/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "provider_website",
+        "locator": "Payment facilitator introduction; IPG services; developer resources"
+      },
+      {
+        "id": "s2",
+        "title": "Payment gateway: introduction",
+        "publisher": "ZarinPal",
+        "url": "https://www.zarinpal.com/docs/paymentGateway/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Terminology; technical system information; security requirements"
+      },
+      {
+        "id": "s3",
+        "title": "Guide to connecting to the ZarinPal internet payment gateway",
+        "publisher": "ZarinPal",
+        "url": "https://www.zarinpal.com/docs/paymentGateway/connectToGateway",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Submitting information; redirecting the buyer; return to merchant; verification"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/financial-technology/",
+        "relationship": "Broader financial technology context"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/digital-wallets/",
+        "relationship": "Balance-based payment services"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/open-banking/",
+        "relationship": "Account-based authorization and services"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "The technical account is based on one provider and should not be generalized to every Iranian facilitator or PSP.",
+        "Undated live pages were inspected after the editorial cutoff; their exact state on 2026-10-26 could not be established.",
+        "Provider marketing claims were not independently tested."
+      ],
+      "unverified_items": [
+        "The regulatory definition of payment facilitation and its distinction from PSP licensing.",
+        "Current Shaparak and Central Bank merchant onboarding, eligibility, and settlement requirements.",
+        "Independent evidence on competition, outages, and merchant outcomes."
+      ],
+      "data_gaps": [
+        "No comparable annual series specific to payment facilitators was verified for 2012–2026. Provider feature descriptions and API examples are not market observations."
+      ],
+      "coverage_period": "Undated provider documentation inspected on 2026-10-27; historical applicability at the 2026-10-26 cutoff remains unconfirmed."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-5-2",
+    "page_path": "/explore/business/financial-technology/digital-wallets/",
+    "name": "Digital Wallets",
+    "level": 3,
+    "parent_path": "/explore/business/financial-technology/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Iranian financial platforms use the term digital wallet for services that record balances and associated transactions. Vandar's documentation illustrates customer and business wallets, while Digipay demonstrates how payment services can appear alongside credit and other financial products.",
+    "tags": [
+      "Iran",
+      "Digital Wallets",
+      "Financial Technology",
+      "Payment Balances",
+      "Financial Platforms"
+    ],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T18:40:54Z",
+    "updated_at": "2026-10-27T18:40:54Z",
+    "seo": {
+      "title": "Digital Wallets in Iran: Balances and Payment Services | Iran, Unfolded",
+      "description": "Explore documented customer and business wallet functions in Iran, including balance records, transaction histories, and currency distinctions."
+    },
+    "content": [
+      {
+        "id": "wallet-meaning",
+        "type": "text",
+        "heading": "What a wallet records",
+        "content": "A useful starting point for understanding an Iranian digital wallet is the balance and transaction record exposed by its provider. Vandar’s customer-service documentation describes tools for managing customers’ identity information, wallets, bank identifiers, cards, subscriptions, and transactions. Within that system, the wallet section provides operations to view a customer balance and register increases or decreases. This is a documented example of wallet infrastructure supplied to businesses. [s1]\n\nThe customer-wallet operations require a customer identifier within a business account. Their examples label the currency as RIAL and associate balance changes with tracking references. The transaction history records deposits and withdrawals alongside resulting balances. These details explain the bookkeeping interface, but they do not by themselves establish the legal ownership, safeguarding, or bank-deposit status of the money represented. [s1]",
+        "source_ids": [
+          "s1"
+        ]
+      },
+      {
+        "id": "customer-business-distinction",
+        "type": "text",
+        "heading": "Customer balances and business balances",
+        "content": "Vandar separately documents a business wallet through its statement service. That interface exposes a business balance, while related reporting covers transactions and settlements. Its balance example identifies the currency as toman, and the accompanying explanation specifies that denomination for the service. [s2]\n\nThis creates an important reading distinction: the customer-wallet documentation labels its examples in rials, while the business-balance documentation uses toman. A reader cannot assume that similarly named balance fields share the same denomination. The documents also concern different account scopes—an individual customer record within a business and the business’s own balance. Combining them without checking scope and units would obscure what each number represents. [s1][s2]\n\nThe business statement service includes filters and financial tracking fields. Its separation of balances, transaction reports, and settlements is useful context for the word “wallet”: a displayed balance and a completed settlement are different records in the documented system. The documentation does not establish that a wallet debit necessarily results in an immediate transfer to a bank account. [s2]",
+        "source_ids": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "broader-platform",
+        "type": "text",
+        "heading": "A wallet within a broader financial platform",
+        "content": "Consumer-facing platforms may present several financial activities together. Digipay’s inspected homepage separates payment services from loans and credit, installment purchasing, insurance, and investment-related services. Its payment section advertises payments and transfers, while other sections describe different products and purposes. [s3]\n\nFor an international reader, this product structure is a reminder to identify the actual service behind a familiar app name. A payment function, borrowing arrangement, and investment product answer different needs even when they appear within the same platform. The homepage establishes how Digipay presents those categories; it does not establish common eligibility, fees, withdrawal rights, or protection across them. [s3]\n\nThe documented examples make wallet terminology more concrete, but a complete Iranian overview still requires evidence about how balances are held, where they can be spent, and how users redeem them. Those questions cannot be answered from a balance API or product menu alone.",
+        "source_ids": [
+          "s3"
+        ]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Vandar documentation: customer services",
+        "publisher": "Vandar",
+        "url": "https://vandarpay.github.io/docs/customers/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; wallet balance, deposit, and withdrawal; customer transactions. Displayed update label: Solar Hijri 1401/09/29."
+      },
+      {
+        "id": "s2",
+        "title": "Vandar documentation: statements and business wallet balance",
+        "publisher": "Vandar",
+        "url": "https://vandarpay.github.io/docs/invoice/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; wallet balance; transaction and settlement statements. Displayed update label: Solar Hijri 1401/11/19."
+      },
+      {
+        "id": "s3",
+        "title": "Digipay homepage",
+        "publisher": "Digipay",
+        "url": "https://www.mydigipay.com/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "provider_website",
+        "locator": "Services navigation and introductory service categories"
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/financial-technology/",
+        "relationship": "Broader financial technology context"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/payment-facilitators-and-gateways/",
+        "relationship": "Merchant checkout services"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/open-banking/",
+        "relationship": "Permission-based bank account services"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "The page explains inspected product documentation rather than a representative survey of Iranian wallets.",
+        "API sample balances are illustrative and were not treated as real financial observations.",
+        "Undated live product material was accessed after the research cutoff; archived cutoff-date versions were not verified."
+      ],
+      "unverified_items": [
+        "Current Central Bank wallet rules and their application to different wallet models.",
+        "Safeguarding arrangements, redemption rights, insolvency treatment, and any applicable deposit protection.",
+        "Interoperability, merchant acceptance, regional variation, and independently measured user outcomes."
+      ],
+      "data_gaps": [
+        "No comparable national annual series for active wallets, wallet balances, or wallet transactions was verified for 2012–2026.",
+        "No chart is supplied because API sample values do not measure adoption or activity."
+      ],
+      "coverage_period": "Provider documentation with displayed Solar Hijri update labels in 1401, supplemented by a live product page inspected on 2026-10-27."
+    }
+  },
+  {
+    "schema_version": "1.0",
+    "page_id": "topic-6-5-3",
+    "page_path": "/explore/business/financial-technology/open-banking/",
+    "name": "Open Banking",
+    "level": 3,
+    "parent_path": "/explore/business/financial-technology/",
+    "entity_type": "concept",
+    "address": null,
+    "phone": null,
+    "email": null,
+    "website": null,
+    "logo": null,
+    "contact_source_ids": [],
+    "description": "Iranian open-banking providers describe services that connect businesses and developers to financial capabilities through software interfaces. Published Vandar documentation illustrates permission-based direct debit, including bank authorization, business authentication, and service-availability checks.",
+    "tags": [
+      "Iran",
+      "Open Banking",
+      "APIs",
+      "Direct Debit",
+      "Financial Technology",
+      "Authorization"
+    ],
+    "status": null,
+    "editorial_status": "needs_research",
+    "as_of_date": "2026-10-26",
+    "created_at": "2026-10-27T18:40:54Z",
+    "updated_at": "2026-10-27T18:40:54Z",
+    "seo": {
+      "title": "Open Banking in Iran: APIs and Account Authorization | Iran, Unfolded",
+      "description": "Understand Iranian open-banking examples through provider descriptions, business access credentials, and documented direct-debit authorization."
+    },
+    "content": [
+      {
+        "id": "provider-ecosystem",
+        "type": "text",
+        "heading": "Financial services through software interfaces",
+        "content": "An application programming interface, or API, allows software systems to request defined services from one another. Finnotech’s own company profile places APIs at the center of its Iranian open-banking offering. It describes an ecosystem involving service providers, businesses, and developers, and lists banking and payment alongside capital-market, insurance, municipal, and governance services. This is evidence of the company’s stated scope, rather than independent verification of every listed capability. [s1]\n\nThat breadth helps explain why “open banking” can appear beside the wider language of open innovation. Finnotech describes an ambition to connect multiple service domains, not simply reproduce a bank’s consumer application. Its profile supports the existence of this provider model, but does not establish a universal Iranian technical standard, mandatory bank participation, or a legal right to obtain account data. [s1]",
+        "source_ids": [
+          "s1"
+        ]
+      },
+      {
+        "id": "business-access",
+        "type": "text",
+        "heading": "Business credentials are one layer of access",
+        "content": "Vandar’s introductory documentation distinguishes credentials for different products. It describes API keys for gateway integration and valid tokens for other APIs, while warning that availability can depend on a business user’s access level. The published services use REST interfaces, a common style of web API. [s2]\n\nIts authentication guide explains how a business owner or manager obtains an initial access token and refresh token through the dashboard. The guide distinguishes the token used to call services from the refresh token used to renew access. These credentials authenticate the business’s software relationship with the platform; they should not be read as evidence that every customer has authorized access to a bank account. [s3]\n\nThe distinction is visible in the documentation itself: business authentication has its own instructions, while account-related authorization appears in a separate payment workflow. This separation is central to understanding the service, because an application’s ability to make an API request and a customer’s permission for a financial action are different questions. [s2][s3]",
+        "source_ids": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "direct-debit-example",
+        "type": "text",
+        "heading": "Direct debit as a concrete example",
+        "content": "Vandar’s automatic-payment documentation describes direct debit as withdrawal from a bank account with the payer’s authorization. Its published process creates an authorization request, directs the customer to a bank page, and requires confirmation of the resulting authorization. The request includes limits on withdrawal amount and frequency, together with an expiry date. [s4]\n\nBank coverage and operational availability are separate concerns. The documentation exposes checks for whether a bank supports direct debit and whether that service is healthy at the time of use. A bank appearing in a documentation example therefore does not prove uninterrupted availability. [s4]\n\nThis example shows a permission-based account-payment process. It does not establish that the same platform provides unrestricted transaction histories, identical permissions across banks, or the full range of services associated with open banking elsewhere. A broader assessment of Iran requires current bank documentation and regulatory evidence in addition to these provider accounts.",
+        "source_ids": [
+          "s4"
+        ]
+      },
+      {
+        "id": "authorization-process",
+        "type": "markdown-mermaid",
+        "title": "A published account-payment authorization workflow",
+        "content": "```mermaid\nflowchart TD\n  A[\"Business application\"] -->|\"Authenticates using business credentials\"| B[\"Vandar API\"]\n  B -->|\"Creates authorization request\"| C[\"Requested payment permission\"]\n  C -->|\"Customer is directed to authorize\"| D[\"Bank authorization page\"]\n  D -->|\"Returns authorization outcome\"| E[\"Business callback\"]\n  E -->|\"Submits authorization confirmation\"| B\n  B -->|\"Confirmed permission can support\"| F[\"Subsequent debit requests\"]\n```",
+        "summary": "The arrows describe the authorization process in Vandar's published documentation. They do not represent universal bank coverage, regulatory supervision, or proof of a successful debit.",
+        "as_of_date": null,
+        "source_ids": [
+          "s3",
+          "s4"
+        ]
+      }
+    ],
+    "datasets": [],
+    "sources": [
+      {
+        "id": "s1",
+        "title": "Finnotech company profile",
+        "publisher": "Finnotech via LinkedIn",
+        "url": "https://www.linkedin.com/company/finnotech-ir",
+        "language": "en",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "company_profile",
+        "locator": "About us; specialties"
+      },
+      {
+        "id": "s2",
+        "title": "Vandar documentation: introductory concepts",
+        "publisher": "Vandar",
+        "url": "https://vandarpay.github.io/docs/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introductory concepts; getting started. Displayed update label: Solar Hijri 1399/11/15."
+      },
+      {
+        "id": "s3",
+        "title": "Vandar documentation: obtaining authentication tokens",
+        "publisher": "Vandar",
+        "url": "https://vandarpay.github.io/docs/auth/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Obtaining the initial token and refresh token. Displayed update label: Solar Hijri 1399/11/10."
+      },
+      {
+        "id": "s4",
+        "title": "Vandar documentation: automatic payment and direct debit",
+        "publisher": "Vandar",
+        "url": "https://vandarpay.github.io/docs/subscription/",
+        "language": "fa",
+        "publication_date": null,
+        "access_date": "2026-10-27",
+        "source_type": "technical_documentation",
+        "locator": "Introduction; bank availability; authorization request; bank redirect; authorization confirmation. Displayed version label: 3.0, Solar Hijri 1400/08/23."
+      }
+    ],
+    "related_pages": [
+      {
+        "page_path": "/explore/business/financial-technology/",
+        "relationship": "Broader financial technology context"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/payment-facilitators-and-gateways/",
+        "relationship": "Related merchant payment integration"
+      },
+      {
+        "page_path": "/explore/business/financial-technology/digital-wallets/",
+        "relationship": "Related balance-management services"
+      }
+    ],
+    "research_notes": {
+      "limitations": [
+        "The page uses provider descriptions and published technical documentation; no live banking operation was tested.",
+        "Vandar documentation contains historical version and update labels, so it does not establish current production behavior.",
+        "Finnotech's main website could not be inspected; its self-authored LinkedIn profile supports only attributed descriptions.",
+        "The workflow diagram describes published documentation rather than a verified structure as of the editorial cutoff."
+      ],
+      "unverified_items": [
+        "The current Iranian regulatory framework for bank API access, customer consent, liability, and data protection.",
+        "Current bank participation, supported account-information services, and permission-revocation mechanisms.",
+        "Independent evidence of adoption, competition, reliability, and customer outcomes.",
+        "Whether undated live provider statements were already applicable on 2026-10-26."
+      ],
+      "data_gaps": [
+        "No comparable annual national series for open-banking customers, API activity, participating banks, or authorized accounts was verified for 2012–2026.",
+        "Documentation examples and bank lists were not treated as adoption statistics."
+      ],
+      "coverage_period": "Historical provider documentation with displayed update labels in Solar Hijri 1399–1400, plus an undated company profile inspected on 2026-10-27."
+    }
+  }
+]

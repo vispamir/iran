@@ -1,0 +1,4 @@
+import type { Destination } from '@/data/climate/destinations';
+export function IranMap({ destination, color }: {destination: Destination; color: string}) {
+ return <div className="cc-map"><span className="cc-map-north">N <span>↑</span></span><svg viewBox="55 50 570 510" role="img" aria-label={`Iran landscape map. Selected region: ${destination.name}, ${destination.province}.`}><image href="/images/seasons/iran-map.svg" width="680" height="610"/><g className="cc-map-marker" style={{transform:`translate(${destination.mapPoint[0]}px, ${destination.mapPoint[1]}px)`,color}}><circle r="23" fill="currentColor" opacity=".15"/><circle r="10" fill="currentColor" opacity=".25"/><circle r="5" fill="currentColor" stroke="#fffdf7" strokeWidth="2"/></g></svg><span className="cc-map-title">IRAN<span>A WORLD WITHIN</span></span></div>;
+}
