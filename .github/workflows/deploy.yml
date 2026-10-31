@@ -1,0 +1,64 @@
+name: Build and deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: production
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SITE_URL: https://iranunfolded.com
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run typecheck
+      - name: Package standalone application
+        run: |
+          cp -r public .next/standalone/
+          cp -r .next/static .next/standalone/.next/
+          echo "$GITHUB_SHA" > .next/standalone/REVISION
+          tar -czf release.tar.gz -C .next/standalone .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production
+          path: release.tar.gz
+          retention-days: 7
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: production
+      - name: Install SSH credentials
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Upload and activate release
+        env:
+          DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+        run: |
+          scp release.tar.gz "iran-deploy@$DEPLOY_HOST:/srv/iranunfolded/incoming/$GITHUB_SHA.tar.gz"
+          ssh "iran-deploy@$DEPLOY_HOST" "sudo /usr/local/sbin/deploy-iranunfolded $GITHUB_SHA"
+      - name: Verify public HTTPS
+        run: curl --fail --show-error --silent --retry 6 --retry-delay 5 https://iranunfolded.com/ -o /dev/null

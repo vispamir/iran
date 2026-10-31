@@ -1,0 +1,22 @@
+[Unit]
+Description=Iran Unfolded Next.js
+After=network.target
+[Service]
+Type=simple
+User=iran-app
+Group=iran-app
+WorkingDirectory=/srv/iranunfolded/current
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3108
+Environment=NEXT_PUBLIC_SITE_URL=https://iranunfolded.com
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/iranunfolded/releases
+[Install]
+WantedBy=multi-user.target
