@@ -24,8 +24,9 @@ Activation is serialized. A failed loopback health check restores the previous
 release. Actions also verifies public HTTPS. Old releases are retained for rollback;
 monitor disk use and prune inactive releases when needed.
 
-Nginx accepts HTTP and HTTPS to accommodate the CDN origin protocol without
-redirect loops. Configure HTTPS redirects at Cloudflare and use Full (strict) TLS.
+Nginx permanently redirects HTTP and HTTPS www requests directly to
+https://iranunfolded.com, preserving paths and query strings. Use Full (strict)
+TLS at Cloudflare so HTTPS visitors reach the origin over HTTPS without loops.
 Cloudflare Origin certificates are intended for Cloudflare-to-origin connections.
 
 Inspect with systemctl status iranunfolded and journalctl -u iranunfolded.
