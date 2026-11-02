@@ -1,3 +1,4 @@
+import { BrandLogo } from '@/components/BrandLogo';
 import Image from 'next/image';
 import { FashionNav } from '@/components/fashion/FashionNav';
 import './fashion.css';
@@ -49,6 +50,6 @@ export default function FashionPage() {
   </section>
   <section id="culture" className="na-outfit-context na-section"><div><Label>STYLE AS A LANGUAGE</Label><h2>Texture. Proportion.<br/><em>Individuality.</em></h2></div><div><p>A wardrobe can move between soft volume, precise tailoring and warm layers. These three supplied outfit references are a starting point for personal expression, rather than a uniform or a claim about how everyone dresses.</p><p className="na-small">Outfit boards are adapted from the supplied references. The models are AI-generated fictional adults, styled to show each coordinated set; these images are editorial interpretations, not documentary photographs.</p></div></section>
   <section id="designers" className="na-closing"><Label>THE STYLING VOCABULARY</Label><h2>The pieces are a beginning.<br/>The expression is <em>yours.</em></h2><p>Follow a color through the accessories. Balance a loose silhouette with a structured layer. Let a small detail change the whole mood.</p><a className="na-link" href="#style-guide">REVISIT THE LOOKS <span>↑</span></a></section>
-  <footer className="na-footer"><a className="na-wordmark" href="#editorial">NĀ</a><nav aria-label="Footer navigation"><a href="#editorial">Editorial</a><a href="#urban-style">Urban style</a><a href="#style-guide">The looks</a><a href="#culture">Culture</a><a href="#designers">Styling notes</a></nav><div><p>A fashion & culture editorial<br/>from <a href="/">IRAN, Unfolded ↗</a></p></div><div className="na-footer-bottom"><span>© 2026 IRAN, UNFOLDED</span><span>INDIVIDUAL EXPRESSION. SHARED CULTURE.</span><a href="#editorial">BACK TO TOP ↑</a></div></footer>
+  <footer className="na-footer"><a className="ir-logo" href="/" aria-label="Iran Unfolded home"><BrandLogo/></a><nav aria-label="Footer navigation"><a href="#editorial">Editorial</a><a href="#urban-style">Urban style</a><a href="#style-guide">The looks</a><a href="#culture">Culture</a><a href="#designers">Styling notes</a></nav><div><p>A fashion & culture editorial<br/>from <a href="/">IRAN, Unfolded ↗</a></p></div><div className="na-footer-bottom"><span>© 2026 IRAN, UNFOLDED</span><span>INDIVIDUAL EXPRESSION. SHARED CULTURE.</span><a href="#editorial">BACK TO TOP ↑</a></div></footer>
  </div></div>;
 }

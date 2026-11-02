@@ -1,4 +1,5 @@
 'use client';
+import { BrandLogo } from './BrandLogo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -33,7 +34,7 @@ export function SiteHeader() {
   setOpen(!open);
  }
  return <header className="iran-site site-header-surface" ref={header} onBlur={e=>{if(e.relatedTarget&&!e.currentTarget.contains(e.relatedTarget as Node))setOpen(false);}}>
-  <div className="site-header-inner"><Link href="/" className="ir-logo" aria-label="Iran Unfolded home" onClick={()=>close()}>IRAN<span className="ir-logo-star">✳</span><small>UNFOLDED</small></Link>
+  <div className="site-header-inner"><Link href="/" className="ir-logo" aria-label="Iran Unfolded home" onClick={()=>close()}><BrandLogo/></Link>
   <nav className="site-primary-nav" aria-label="Main navigation"><button className={`mega-trigger ${open?'is-open':''}`} ref={trigger} onClick={toggle} aria-expanded={open} aria-controls="explore-mega-menu">Explore Iran <ChevronDown size={15}/></button><Link href="/nature/">Nature</Link><Link href="/economy/">Economy</Link><Link href="/urban-life/">Urban life</Link><Link href="/peoples/" aria-current={pathname.startsWith('/peoples')?'page':undefined}>Peoples</Link><Link href="/fashion/" aria-current={pathname.startsWith('/fashion')?'page':undefined}>Fashion</Link><Link href="/governance/" aria-current={pathname.startsWith('/governance')?'page':undefined}>Governance</Link><Link href="/four-season/" aria-current={pathname.startsWith('/four-season')?'page':undefined}>Four seasons</Link></nav>
   <div className="site-header-tools"><Link href="/explore/" className="site-directory-link">All perspectives <ArrowUpRight size={14}/></Link><ThemeToggle/></div></div>
   {open&&<div id="explore-mega-menu" className="mega-panel" role="region" aria-label="Explore Iran categories">
